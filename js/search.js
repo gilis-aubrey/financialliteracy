@@ -179,7 +179,7 @@ style.innerHTML = `
 }
 .search-btn-link:hover, .search-btn-link:focus {
     background: #0d6efd;
-    color: #fff;
+    color: #fff !important;
     text-decoration: none;
 }
 .search-btn-link:active {
