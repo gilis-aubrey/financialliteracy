@@ -1,24 +1,44 @@
 <footer class="site-footer">
-    <div class="row">
-        <div class="col-md-4">©2025 圖資所-資訊架構作業 by GPT-4.1</div>
-        <div class="col-md-4">email：gilis@tayal.tw</div>
-        <div class="col-md-4 text-end">
-            <!-- 社群圖示，官方配色，距離左邊界至少50px -->
-            <div style="display:inline-block; margin-right:24px; margin-left:50px;">
-                <a href="https://line.me/" target="_blank" title="Line" style="margin-right:10px; color:#06C755;">
-                    <i class="fab fa-line fa-lg"></i>
-                </a>
-                <a href="https://www.threads.net/" target="_blank" title="Threads"
-                    style="margin-right:10px; color:#000;">
-                    <i class="fab fa-threads fa-lg"></i>
-                </a>
-                <a href="https://instagram.com/" target="_blank" title="Instagram"
-                    style="margin-right:10px; color:#E4405F;">
-                    <i class="fab fa-instagram fa-lg"></i>
-                </a>
-                <a href="https://facebook.com/" target="_blank" title="Facebook" style="color:#1877F3;">
-                    <i class="fab fa-facebook fa-lg"></i>
-                </a>
+    <style>
+    @media (max-width: 767.98px) {
+        .footer-stack-mobile {
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center !important;
+        }
+        .footer-stack-mobile > div {
+            width: 100% !important;
+            margin-bottom: 8px;
+        }
+        .footer-social-mobile {
+            justify-content: center !important;
+        }
+    }
+    </style>
+    <div class="container-fluid">
+        <div class="row footer-stack-mobile d-flex flex-md-row flex-column align-items-start align-items-md-stretch">
+            <div class="col-md-6" style="min-height:70px; text-align:left;">
+                <div style="font-size:1em; margin-bottom:0 !important; display:block !important;">©2025 圖資所-資訊架構作業 Powered by GPT-4.1</div>
+                <div style="font-size:0.97em;">email：gilis@tayal.tw</div>
+            </div>
+            <div class="col-md-6 text-end" style="min-height:70px;">
+                <div>
+                    <a href="knowledge_structure.html" style="font-size:0.98em; text-decoration:none; white-space:nowrap; color:inherit;">知識架構與網站地圖</a>
+                </div>
+                <div class="footer-social-mobile" style="display:flex; align-items:center; gap:18px; min-width:180px; margin-bottom:0 !important; display:block !important;">
+                    <a href="https://line.me/" target="_blank" title="Line" style="margin-right:10px; color:#06C755;">
+                        <i class="fab fa-line fa-lg"></i>
+                    </a>
+                    <a href="https://www.threads.net/" target="_blank" title="Threads" style="margin-right:10px; color:#000;">
+                        <i class="fab fa-threads fa-lg"></i>
+                    </a>
+                    <a href="https://instagram.com/" target="_blank" title="Instagram" style="margin-right:10px; color:#E4405F;">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="https://facebook.com/" target="_blank" title="Facebook" style="color:#1877F3;">
+                        <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
