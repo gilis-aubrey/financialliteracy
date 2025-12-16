@@ -313,6 +313,11 @@
 .submenu a:hover {
     background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
     color: #fff;
+    border: 2px solid transparent;
+    border-image: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    border-image-slice: 1;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
 }
 .submenu .has-submenu > .submenu {
     left: auto;
