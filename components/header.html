@@ -21,19 +21,23 @@
                             <!-- 外圓 -->
                             <circle cx="24" cy="24" r="20" fill="#fff" stroke="url(#exg1)" stroke-width="3" />
                             <!-- 錢幣符號 $（放大置中） -->
-                                                        <g id="dollar-rotate" style="transform-origin:24px 27px;">
-                                                                <text x="24" y="27" text-anchor="middle" dominant-baseline="middle" font-size="32" font-family="Arial, sans-serif"
-                                                                        fill="#2575fc" font-weight="bold">$</text>
-                                                        </g>
+                            <g id="dollar-rotate" style="transform-origin:24px 27px;">
+                                <text x="24" y="27" text-anchor="middle" dominant-baseline="middle" font-size="32" font-family="Arial, sans-serif"
+                                    fill="#2575fc" font-weight="bold">$</text>
+                            </g>
                         </svg>
+                    </span>
+                    <span class="ms-2 fw-bold" style="font-size:1.25rem; letter-spacing:0.02em; line-height:1.1; display:flex; flex-direction:column; background:linear-gradient(90deg,#2575fc,#6a11cb); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; text-fill-color:transparent;">
+                        <span style="font-size:1.25rem;">新鮮人</span>
+                        <span style="font-size:1.05rem;">理財入門指南</span>
                     </span>
                 </a>
             </div>
-            <div class="navbar-center">
+            <div class="navbar-center" style="max-width:250px; margin:0 auto;">
                 <form class="search-form search-form-inside" autocomplete="off">
                     <div class="search-input-group search-input-group-absolute" style="position:relative;">
                         <input type="search" class="search-input" placeholder="全文檢索..." name="q" required
-                            autocomplete="off">
+                            autocomplete="off" style="width:100%; min-width:0;">
                         <div id="search-live-results" class="search-live-results"></div>
                     </div>
                 </form>

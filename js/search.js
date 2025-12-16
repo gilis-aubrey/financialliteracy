@@ -117,7 +117,7 @@ function setupLiveSearch() {
                 const start = Math.max(0, idx - 30);
                 const end = Math.min(text.length, idx + query.length + 30);
                 const snippet = text.substring(start, end).replace(new RegExp(query, 'gi'), m => `<mark>${m}</mark>`);
-                html += `<div class="search-result-item"><a href="${page.url}">${page.title}</a><div class="search-snippet">...${snippet}...</div></div>`;
+                html += `<div class="search-result-item"><a href="${page.url}" class="search-btn-link">${page.title}</a><div class="search-snippet">...${snippet}...</div></div>`;
             }
         }
         // 2. 討論區 localStorage 搜尋
@@ -162,6 +162,32 @@ function setupLiveSearch() {
         resultsDiv.innerHTML = html;
         resultsDiv.classList.add('active');
     });
+// 搜尋結果連結按鈕樣式
+const style = document.createElement('style');
+style.innerHTML = `
+.search-btn-link {
+    display: inline-block;
+    padding: 0.25em 0.9em;
+    border: 1px solid #0d6efd;
+    border-radius: 0.25rem;
+    color: #0d6efd;
+    background: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    margin-bottom: 2px;
+    transition: background 0.15s, color 0.15s;
+}
+.search-btn-link:hover, .search-btn-link:focus {
+    background: #0d6efd;
+    color: #fff;
+    text-decoration: none;
+}
+.search-btn-link:active {
+    background: #0a58ca;
+    color: #fff;
+}`;
+document.head.appendChild(style);
+
 // 若由搜尋點擊跳轉，進入 forum.html 自動展開對應主題
 if (window.location.pathname.endsWith('forum.html')) {
     window.addEventListener('DOMContentLoaded', function() {
