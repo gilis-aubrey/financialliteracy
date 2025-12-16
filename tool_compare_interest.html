@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活儲/定存/股票/ETF 報酬比較</title>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <main class="main-content container my-5">
+        <div class="card shadow-sm border-0 mb-4">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-4 bg-transparent px-0">
+                    <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="#">理財工具區</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">活儲/定存/股票/ETF 報酬比較</li>
+                </ol>
+            </nav>
+            <h1 class="mb-4">活儲、定存、投資股票(股息)、ETF 試算比較</h1>
+            <hr class="mb-4">
+            <form id="compare-form" class="mb-4">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="amount" class="form-label">投入金額（元）</label>
+                        <input type="number" class="form-control" id="amount" required min="1" value="100000">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="years" class="form-label">持有年數</label>
+                        <input type="number" class="form-control" id="years" required min="0.01" step="0.01" value="3">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="rate_saving" class="form-label">活儲年利率（%）</label>
+                        <input type="number" class="form-control" id="rate_saving" required min="0" step="0.01"
+                            value="1">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="rate_fd" class="form-label">定存年利率（%）</label>
+                        <input type="number" class="form-control" id="rate_fd" required min="0" step="0.01" value="2">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="rate_stock" class="form-label">股票年股息率（%）</label>
+                        <input type="number" class="form-control" id="rate_stock" required min="0" step="0.01"
+                            value="4">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="rate_etf" class="form-label">ETF年化報酬率（%）</label>
+                        <input type="number" class="form-control" id="rate_etf" required min="0" step="0.01" value="6">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="rate_bond" class="form-label">債券年化報酬率（%）</label>
+                        <input type="number" class="form-control" id="rate_bond" required min="0" step="0.01"
+                            value="2.5">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="rate_insurance" class="form-label">投資險保單年化報酬率（%）</label>
+                        <input type="number" class="form-control" id="rate_insurance" required min="0" step="0.01"
+                            value="3">
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary w-100">計算比較</button>
+                    </div>
+                </div>
+            </form>
+            <div id="result" class="alert alert-info d-none"></div>
+        </div>
+    </main>
+    <div id="footer"></div>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/import-components.js"></script>
+    <script>
+        document.getElementById('compare-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const amount = parseFloat(document.getElementById('amount').value);
+            const years = parseFloat(document.getElementById('years').value);
+            const rate_saving = parseFloat(document.getElementById('rate_saving').value) / 100;
+            const rate_fd = parseFloat(document.getElementById('rate_fd').value) / 100;
+            const rate_stock = parseFloat(document.getElementById('rate_stock').value) / 100;
+            const rate_etf = parseFloat(document.getElementById('rate_etf').value) / 100;
+            const rate_insurance = parseFloat(document.getElementById('rate_insurance').value) / 100;
+            const rate_bond = parseFloat(document.getElementById('rate_bond').value) / 100;
+            // 單利
+            const saving = amount * (1 + rate_saving * years);
+            // 複利
+            const fd = amount * Math.pow(1 + rate_fd, years);
+            // 股票單利（僅計算股息，不考慮股價變動）
+            const stock = amount * (1 + rate_stock * years);
+            // ETF 複利
+            const etf = amount * Math.pow(1 + rate_etf, years);
+            // 投資險保單複利
+            const insurance = amount * Math.pow(1 + rate_insurance, years);
+            // 債券複利
+            const bond = amount * Math.pow(1 + rate_bond, years);
+            const result = `
+            <table class='table table-bordered text-center mt-3'>
+                <thead class='table-light'><tr><th>項目</th><th>最終金額</th><th>總報酬率</th></tr></thead>
+                <tbody>
+                    <tr><td><span class='badge bg-secondary'>活儲</span></td><td>${saving.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td><td>${((saving / amount - 1) * 100).toFixed(2)}%</td></tr>
+                    <tr><td><span class='badge bg-secondary'>定存</span></td><td>${fd.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td><td>${((fd / amount - 1) * 100).toFixed(2)}%</td></tr>
+                    <tr><td><span class='badge bg-success'>債券</span></td><td>${bond.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td><td>${((bond / amount - 1) * 100).toFixed(2)}%</td></tr>
+                    <tr><td><span class='badge bg-info text-dark'>投資險保單</span></td><td>${insurance.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td><td>${((insurance / amount - 1) * 100).toFixed(2)}%</td></tr>
+                    <tr><td><span class='badge bg-warning text-dark'>ETF</span></td><td>${etf.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td><td>${((etf / amount - 1) * 100).toFixed(2)}%</td></tr>
+                    <tr><td><span class='badge bg-danger'>股票(股息)</span></td><td>${stock.toLocaleString(undefined, { maximumFractionDigits: 0 })}</td><td>${((stock / amount - 1) * 100).toFixed(2)}%</td></tr>
+                </tbody>
+            </table>
+            <div class='mt-3 text-center'>
+                <strong>風險程度（低→高）：</strong>
+                <span class='badge bg-secondary'>活儲</span>
+                <span class='badge bg-secondary'>定存</span>
+                <span class='badge bg-success'>債券</span>
+                <span class='badge bg-info text-dark'>投資險保單</span>
+                <span class='badge bg-warning text-dark'>ETF</span>
+                <span class='badge bg-danger'>股票(股息)</span>
+            </div>
+        `;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = result;
+            resultDiv.classList.remove('d-none');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>通貨膨脹與複利效應</title>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <main class="main-content container my-5">
+          <div class="card shadow-sm border-0 mb-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-4 bg-transparent px-0">
+                        <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                         <li class="breadcrumb-item"><a href="#">理財觀念啟蒙</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">通貨膨脹與複利效應</li>
+                    </ol>
+                </nav>
+      
+            <div class="card-body">
+                <img src="03.png" alt="通貨膨脹圖示" class="img-fluid mb-3">
+                <h1 class="h4 mb-3">通貨膨脹與複利效應</h1>
+                <div class="accordion mt-4" id="inflationCompoundAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                通貨膨脹：時間把錢變薄了
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#inflationCompoundAccordion">
+                            <div class="accordion-body">
+                                <p><strong>定義：</strong><br>
+                                    通貨膨脹是指一段時間內，商品和服務的總體價格水平持續上漲，導致您的每一塊錢能買到的東西變少。用白話文來說，它就像一個「錢包裡的隱形小偷」，每年偷偷地偷走您金錢的一部分購買力。
+                                </p>
+                                <p><strong>核心衡量指標：</strong> 消費者物價指數 (CPI)
+                                    就像是政府定期檢查的「生活成本溫度計」。它衡量的是一籃子我們日常購買的必需品和服務（例如：一杯咖啡、一趟捷運、一條麵包）的平均價格變動。</p>
+                                <p><strong>財富的真實考驗 (實質收益率)：</strong> 當您的錢放在銀行裡時，如果年利率是 1%，而通膨率是 3%，那麼您名目上雖然賺了
+                                    1%，但實質上卻損失了 2% 的購買力。</p>
+                                <h6 class="mt-3">舉例：一杯咖啡的代價</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered align-middle text-center">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>項目</th>
+                                                <th>期初 (現在)</th>
+                                                <th>1 年後 (名目不變)</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>您可以買多少杯咖啡？</td>
+                                                <td>$10,000 / 100 = 100$ 杯</td>
+                                                <td>咖啡漲價到 $103。$10,000 / $103 ≈ 97 杯</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>雖然撲滿裡的錢還是 10,000
+                                    元，但您實際能享有的生活品質卻下降了。通膨使得您的每一塊錢都變得「比較沒用了」。這就是為什麼單純儲蓄（特別是低利率儲蓄）無法讓人致富的原因。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                複利效應：金錢的利滾利雪球
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#inflationCompoundAccordion">
+                            <div class="accordion-body">
+                                <p><strong>定義：</strong><br>
+                                    複利效應被愛因斯坦譽為世界第八大奇蹟，它讓您的利息也能賺取利息。這就像是一個「財富加速器」，您的本金隨著時間滾成一個越來越大的雪球。</p>
+                                <p><strong>公式：</strong>
+                                <div class="formula-container">
+                                    A = P ( 1 +
+                                    <span class="frac">
+                                        <span class="numerator">r</span>
+                                        <span class="denominator">n</span>
+                                    </span>
+                                    )
+                                    <sup>nt</sup>
+                                </div>
+                                A是您最終拿到的雪球大小；P 是您投入的第一塊錢。</p>
+                                <p><strong>「72 法則」：</strong> 快速估算翻倍時間。如果您想知道一筆錢大約多久會翻一倍，只需要用 72 除以您的年化回報率：<br>
+                                    $$\text{Years to Double} \approx \frac{72}{\text{Annual Rate (\%)}}$$<br>
+                                    例如，如果您的投資回報率是 $8\%$，那麼 $72/8 = 9$ 年，您的本金大約就能翻倍。</p>
+                                <h6 class="mt-3">舉例：時間的魔法</h6>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered align-middle text-center">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>年數 (t)</th>
+                                                <th>小明：投資 10 年後總金額</th>
+                                                <th>複利的力量</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>$10,800</td>
+                                                <td>賺到的利息 $800</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10</td>
+                                                <td>約 $21,589</td>
+                                                <td>本金賺的利息和累積利息賺的利息</td>
+                                            </tr>
+                                            <tr>
+                                                <td>20</td>
+                                                <td>約 $46,610</td>
+                                                <td>僅最後 10 年就多賺了兩萬五！</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <p>複利效應最關鍵的變量是時間，它在公式中處於指數的位置。這代表，當您越早開始投資，您的金錢就有越長的時間來源於自我複製。</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                總結：利用複利打敗通膨
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#inflationCompoundAccordion">
+                            <div class="accordion-body">
+                                <p>理財的目標，就是讓您的複利雪球滾得比通膨小偷偷得更快。</p>
+                                <p>只有當您的 <strong>實質收益率</strong>
+                                    為正值時，您的財富才算真正增長。這就是為什麼將資金投入到能夠提供高於通脹率回報的資產（例如：股票、房地產等）而非僅僅是低利息儲蓄，是累積財富的必要策略。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="footer"></div>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/import-components.js"></script>
+    <script src="js/dropdown-hover-multilevel.js"></script>
+    <script src="js/search.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>股票年化報酬率計算</title>
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="header"></div>
+    <main class="main-content container my-5">
+        <div class="card shadow-sm border-0 mb-4">
+            <nav aria-label="breadcrumb">
+
+                <ol class="breadcrumb mb-4 bg-transparent px-0">
+                    <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="#">理財工具區</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">股票年化報酬率計算</li>
+                </ol>
+            </nav>
+            <h1 class="mb-4">股票年化報酬率計算</h1>
+            <hr class="mb-4">
+            <form id="stock-return-form" class="mb-4">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label for="initial" class="form-label">投入金額（元）</label>
+                        <input type="number" class="form-control" id="initial" required min="1" value="100000">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="final" class="form-label">最終金額（元）</label>
+                        <input type="number" class="form-control" id="final" required min="1" value="150000">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="years" class="form-label">持有年數</label>
+                        <input type="number" class="form-control" id="years" required min="0.01" step="0.01" value="3">
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button type="submit" class="btn btn-primary w-100">計算</button>
+                    </div>
+                </div>
+            </form>
+            <div id="result" class="alert alert-info d-none"></div>
+        </div>
+    </main>
+    <div id="footer"></div>
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/import-components.js"></script>
+    <script>
+        document.getElementById('stock-return-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const initial = parseFloat(document.getElementById('initial').value);
+            const final = parseFloat(document.getElementById('final').value);
+            const years = parseFloat(document.getElementById('years').value);
+            if (initial <= 0 || final <= 0 || years <= 0) {
+                document.getElementById('result').innerHTML = '請輸入正確數值';
+                document.getElementById('result').classList.remove('d-none');
+                return;
+            }
+            // 年化報酬率公式 CAGR = (Final/Initial)^(1/years) - 1
+            const cagr = Math.pow(final / initial, 1 / years) - 1;
+            const percent = (cagr * 100).toFixed(2);
+            const result = `年化報酬率：<strong>${percent}%</strong>`;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = result;
+            resultDiv.classList.remove('d-none');
+        });
+    </script>
+</body>
+
+</html>

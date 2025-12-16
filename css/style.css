@@ -1,0 +1,421 @@
+/* 強化首頁與內容頁卡片內邊界，避免被 Bootstrap 覆蓋 */
+.card.shadow-sm.border-0.mb-4 {
+    padding: 2rem 2rem !important;
+}
+/* 情境區卡片互動與美化 */
+.scenario-card {
+    background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+    border: none;
+    box-shadow: 0 2px 12px 0 rgba(106,17,203,0.08), 0 1.5px 6px 0 rgba(37,117,252,0.08);
+    transition: transform 0.18s cubic-bezier(.4,2,.6,1), box-shadow 0.18s;
+}
+.scenario-card:hover, .scenario-card:focus {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 8px 32px 0 rgba(106,17,203,0.18), 0 3px 12px 0 rgba(37,117,252,0.16);
+    background: linear-gradient(135deg, #dbeafe 0%, #e0e7ff 100%);
+    z-index: 2;
+}
+.scenario-card .card-body {
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 移除 nav 選單項目符號 */
+.custom-menu,
+.custom-menu li,
+.custom-menu .submenu,
+.custom-menu .submenu li {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+}
+/* 預留 header/footer 空間並加載動畫，減少閃動 */
+#header, #footer {
+    min-height: 64px;
+    background: #fff;
+    transition: background 0.2s;
+}
+#header.loading, #footer.loading {
+    background: #fff url('data:image/svg+xml;utf8,<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="14" stroke="%236a11cb" stroke-width="4" fill="none" stroke-dasharray="80" stroke-dashoffset="60"><animateTransform attributeName="transform" type="rotate" from="0 16 16" to="360 16 16" dur="1s" repeatCount="indefinite"/></circle></svg>') center center no-repeat;
+}
+/* 桌機預設隱藏，行動裝置顯示 */
+.navbar-toggler {
+        display: none;
+        background: none;
+        border: none;
+        padding: 0.5rem 0.8rem;
+        margin-right: 0.5rem;
+        cursor: pointer;
+}
+@media (max-width: 991px) {
+    .navbar-toggler { display: inline-block; }
+}
+/* 藍紫漸層漢堡條 */
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 28px;
+    height: 3px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    border-radius: 2px;
+    position: relative;
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    border-radius: 2px;
+    position: absolute;
+    left: 0;
+    transition: 0.2s;
+}
+.navbar-toggler-icon::before { top: -9px; }
+.navbar-toggler-icon::after { top: 9px; }
+/* 手機模式隱藏全文檢索欄 */
+@media (max-width: 991px) {
+    .navbar-center { display: none !important; }
+}
+/* RWD 漢堡選單樣式（修正版） */
+@media (max-width: 991px) {
+    .navbar-toggler { display: inline-block; }
+    .custom-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        z-index: 1001;
+        display: none !important;
+    }
+    body.menu-open .custom-menu {
+        display: flex !important;
+        background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%) !important;
+    }
+    body.menu-open .custom-menu > li > a {
+        color: #fff;
+    }
+    body.menu-open .custom-menu > li > a:hover,
+    body.menu-open .custom-menu > li > a.active {
+        color: #ffe066;
+    }
+    .custom-navbar-flex {
+        position: relative;
+    }
+}
+/* 討論區表格主題內容與回應區樣式 */
+#topics-table td {
+    vertical-align: top;
+}
+#topics-table tr.reply-row td {
+    background: #f8f9fa;
+    border-top: none;
+    padding-top: 0;
+}
+.forum-replies {
+    margin-bottom: 0.5rem;
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&display=swap');
+
+/* 全文檢索即時結果區塊 */
+.search-live-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: none;
+    min-width: 100%;
+    max-width: 100%;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    z-index: 1000;
+    border-radius: 0 0 12px 12px;
+    padding: 0.5rem 0;
+    display: none;
+}
+.search-live-results.active {
+    display: block;
+}
+.search-live-results .search-result-item {
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+}
+.search-live-results .search-result-item:last-child {
+    border-bottom: none;
+}
+.search-live-results .search-result-item a {
+    color: #2575fc;
+    text-decoration: none;
+}
+.search-live-results .search-result-item a:hover {
+    text-decoration: underline;
+}
+.search-live-results .search-snippet {
+    font-size: 0.92em;
+    color: #666;
+    margin-top: 0.1em;
+    word-break: break-all;
+}
+/* Header 導覽列三欄排版與搜尋欄樣式 */
+.custom-navbar-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-left {
+    flex: 0 0 auto;
+}
+.navbar-center {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+}
+.navbar-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+.search-input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.search-input {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 1rem;
+    outline: none;
+    min-width: 320px;
+    max-width: 480px;
+    transition: border 0.2s;
+    background: #fff;
+}
+.search-input:focus {
+    border-color: #6a11cb;
+}
+.search-btn {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 0 20px 20px 0;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.search-btn:hover {
+    background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+}
+.site-header {
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    position: relative;
+    z-index: 10;
+}
+/* Header 導覽列三欄排版與自訂選單樣式 */
+.custom-navbar-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.navbar-left {
+    flex: 0 0 auto;
+}
+.navbar-center {
+    flex: 1 1 300px;
+    display: flex;
+    justify-content: center;
+}
+.navbar-right {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+}
+.custom-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+.custom-menu > li {
+    position: relative;
+}
+.custom-menu > li > a {
+    display: block;
+    padding: 1rem 1.2rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.18rem;
+    transition: color 0.2s;
+}
+.custom-menu > li > a:hover,
+.custom-menu > li > a.active {
+    color: #6a11cb;
+    position: relative;
+}
+.custom-menu > li > a:hover::after,
+.custom-menu > li > a.active::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    bottom: 0.3em;
+    height: 3px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    border-radius: 2px 2px 0 0;
+}
+/* 多層下拉選單樣式 */
+.has-submenu > .submenu {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 180px;
+    background: #fff;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    border-radius: 0 0 10px 10px;
+    z-index: 100;
+    padding: 0.5rem 0;
+}
+.has-submenu:hover > .submenu,
+.has-submenu:focus-within > .submenu {
+    display: block;
+}
+.submenu li {
+    position: relative;
+}
+.submenu a {
+    display: block;
+    padding: 0.7rem 1.2rem;
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background 0.18s, color 0.18s;
+    border-radius: 6px;
+}
+.submenu a:hover {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: #fff;
+}
+.submenu .has-submenu > .submenu {
+    left: auto;
+    right: 100%;
+    top: 0;
+    border-radius: 10px 0 10px 10px;
+}
+@media (max-width: 991px) {
+    .has-submenu > .submenu {
+        position: static !important;
+        left: unset !important;
+        right: unset !important;
+        top: unset !important;
+        min-width: 0 !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        padding-left: 1.2rem;
+        display: none;
+    }
+    .has-submenu.open > .submenu {
+        display: block !important;
+    }
+    .submenu a {
+        background: transparent !important;
+        color: #fff !important;
+        padding-left: 2rem;
+    }
+    .submenu a:hover {
+        background: #2575fc !important;
+        color: #ffe066 !important;
+    }
+}
+}
+.main-content.container {
+    width: 90vw;
+    max-width: 1200px;
+    min-width: 320px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(106,17,203,0.07);
+    padding: 2.5rem 2rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.main-content.container h1,
+.main-content.container p {
+    color: #333;
+}
+/* 選單最上層 mouseover 藍紫漸層底線 */
+.navbar-nav > .nav-item > .nav-link {
+    position: relative;
+    transition: color 0.2s;
+}
+.navbar-nav > .nav-item > .nav-link:hover,
+.navbar-nav > .nav-item > .nav-link.active {
+    color: #6a11cb;
+}
+.navbar-nav > .nav-item > .nav-link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    opacity: 0;
+    transition: opacity 0.2s;
+    border-radius: 2px 2px 0 0;
+}
+.navbar-nav > .nav-item > .nav-link:hover::after,
+.navbar-nav > .nav-item > .nav-link.active::after {
+    opacity: 1;
+}
+body {
+    font-family: 'Noto Serif TC', 'Times New Roman', serif;
+    font-weight: 400;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* 紫色佔 30%，藍色佔 70% */
+    background: linear-gradient(135deg, #6a11cb 0%, #6a11cb 30%, #2575fc 100%);
+}
+/* header 白底 */
+.site-header {
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+.site-logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+/* footer 白底 */
+.site-footer {
+    background: #fff;
+    text-align: center;
+    padding: 0.5rem 0;
+    margin-top: auto;
+    font-size: 1rem;
+    color: #6a11cb;
+}
+.main-content {
+    flex: 1 0 auto;
+    padding: 2rem 0;
+}

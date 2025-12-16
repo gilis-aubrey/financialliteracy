@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新鮮人理財入門指南</title>
+    <!-- Bootstrap 5.3.8 CSS (本地) -->
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header 由 JS 匯入 -->
+    <div id="header"></div>
+    <!-- Main Content -->
+    <main class="main-content container my-5">
+        <div class="row g-4">
+            <!-- 網站簡介卡片 -->
+            <div class="col-12 col-md-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <span class="material-icons align-middle text-success me-2" style="font-size:2rem;vertical-align:-0.3rem;">info</span>
+                            <span class="h5 mb-0">網站簡介</span>
+                        </div>
+                        <img src="01.png" alt="金融市場與理財專家示意圖" class="img-fluid rounded mb-3">
+                        <p class="mb-0" style="font-size:1.25rem;"><strong>新鮮人理財入門指南：</strong></p>
+                        <p style="font-size:1.15rem;">本網站致力於提升學生族群的理財素養，提供理財入門、資產配置、投資、儲蓄、保險等主題的知識型文章與討論空間。無論你是理財新手還是有經驗的投資人，都能在這裡找到適合自己的學習資源與交流平台。</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 最新討論卡片 -->
+            <div class="col-12 col-md-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <a href="forum.html" class="text-decoration-none text-dark">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <span class="material-icons align-middle text-primary me-2" style="font-size:2rem;vertical-align:-0.3rem;">forum</span>
+                                <span class="badge bg-primary fs-6">最新討論</span>
+                            </div>
+                            <div id="latest-forum">
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-3 pb-2 border-bottom">
+                                        <strong style="font-size:1.15rem;">新手該選擇定期定額還是單筆投資？</strong><br>
+                                        <small class="text-muted">by 小資女 · 2025-12-14</small>
+                                    </li>
+                                    <li class="mb-3 pb-2 border-bottom">
+                                        <strong style="font-size:1.15rem;">0050 跟 0056 有什麼差別？</strong><br>
+                                        <small class="text-muted">by ETF小白 · 2025-12-13</small>
+                                    </li>
+                                    <li class="mb-3 pb-2 border-bottom">
+                                        <strong style="font-size:1.15rem;">台股現在適合進場嗎？</strong><br>
+                                        <small class="text-muted">by 投資新鮮人 · 2025-12-12</small>
+                                    </li>
+                                    <li class="mb-3 pb-2 border-bottom">
+                                        <strong style="font-size:1.15rem;">學生每月存多少比較合理？</strong><br>
+                                        <small class="text-muted">by 小明 · 2025-12-11</small>
+                                    </li>
+                                    <li>
+                                        <strong style="font-size:1.15rem;">有推薦的高利活儲帳戶嗎？</strong><br>
+                                        <small class="text-muted">by 小美 · 2025-12-10</small>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-end mt-3">
+                                <span class="text-primary">前往討論區查看更多 &raquo;</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- Footer 由 JS 匯入 -->
+    <div id="footer"></div>
+    <!-- Bootstrap 5.3.8 JS (本地) -->
+    <script src="js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/import-components.js"></script>
+    <script src="js/dropdown-hover-multilevel.js"></script>
+    <script src="js/search.js"></script>
+</body>
+
+</html>

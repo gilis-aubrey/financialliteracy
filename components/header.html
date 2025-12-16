@@ -1,0 +1,124 @@
+<header class="site-header">
+    <!-- 全文檢索即時結果顯示區 -->
+    <div id="search-live-results" class="search-live-results"></div>
+
+    <nav class="custom-navbar">
+        <div class="container-fluid custom-navbar-flex">
+            <div class="navbar-left">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <span class="wallet-gradient-icon-svg">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <linearGradient id="exg1" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#2575fc" />
+                                    <stop offset="100%" stop-color="#6a11cb" />
+                                </linearGradient>
+                                <linearGradient id="exg2" x1="0" y1="1" x2="1" y2="0">
+                                    <stop offset="0%" stop-color="#6a11cb" />
+                                    <stop offset="100%" stop-color="#2575fc" />
+                                </linearGradient>
+                            </defs>
+                            <!-- 外圓 -->
+                            <circle cx="24" cy="24" r="20" fill="#fff" stroke="url(#exg1)" stroke-width="3" />
+                            <!-- 錢幣符號 $（放大置中） -->
+                                                        <g id="dollar-rotate" style="transform-origin:24px 27px;">
+                                                                <text x="24" y="27" text-anchor="middle" dominant-baseline="middle" font-size="32" font-family="Arial, sans-serif"
+                                                                        fill="#2575fc" font-weight="bold">$</text>
+                                                        </g>
+                        </svg>
+                    </span>
+                </a>
+            </div>
+            <div class="navbar-center">
+                <form class="search-form search-form-inside" autocomplete="off">
+                    <div class="search-input-group search-input-group-absolute" style="position:relative;">
+                        <input type="search" class="search-input" placeholder="全文檢索..." name="q" required
+                            autocomplete="off">
+                        <div id="search-live-results" class="search-live-results"></div>
+                    </div>
+                </form>
+            </div>
+            <div class="navbar-right">
+                <button class="navbar-toggler" type="button" aria-label="切換選單" onclick="document.body.classList.toggle('menu-open')">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <ul class="custom-menu">
+                    <li><a href="index.html">首頁</a></li>  
+                    <li><a href="scenario.html">情境區</a></li>
+                    <li class="has-submenu">
+                        <a href="#">理財觀念啟蒙區</a>
+                        <ul class="submenu">
+                            <li><a href="why_finance.html">為何要理財？</a></li>
+                            <li><a href="inflation_compound.html">通貨膨脹與複利效應</a></li>
+                            <li><a href="risk_retirement.html">風險與退休保障</a></li>
+                        </ul>
+                    </li>                    
+                    <li class="has-submenu">
+                        <a href="core_process.html">理財核心流程區</a>
+                        <ul class="submenu">
+                            <li class="has-submenu">
+                                <a href="saving.html">儲蓄</a>
+                                <ul class="submenu">
+                                    <li><a href="why_save.html">為什麼要儲蓄？</a></li>
+                                    <li><a href="budget_debt.html">預算規劃與債務</a></li>
+                                    <li><a href="emergency_fund.html">緊急預備金</a></li>
+                                    <li><a href="credit_card.html">信用卡</a></li>
+                                    <li><a href="third_party_payment.html">第三方支付</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="insurance.html">保險</a>
+                                <ul class="submenu">
+                                    <li><a href="why_insurance.html">為什麼要保險？</a></li>
+                                    <li class="has-submenu">
+                                        <a href="insurance_products.html">保險商品</a>
+                                        <ul class="submenu">
+                                            <li><a href="life_insurance.html">壽險</a></li>
+                                            <li><a href="accident_insurance.html">意外險</a></li>
+                                            <li><a href="health_insurance.html">醫療險</a></li>
+                                            <li><a href="investment_insurance.html">投資型保險</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="investment.html">投資</a>
+                                <ul class="submenu">
+                                    <li class="has-submenu">
+                                        <a href="investment_styles.html">投資流派</a>
+                                        <ul class="submenu">
+                                            <li><a href="peter_lynch.html">彼得林區</a></li>
+                                            <li><a href="buffett.html">巴菲特</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="account_opening.html">投資前準備</a></li>
+                                    <li class="has-submenu">
+                                        <a href="investment_products.html">投資商品</a>
+                                        <ul class="submenu">
+                                            <li><a href="stock_etf.html">股票與ETF</a></li>
+                                            <li><a href="bond.html">債券</a></li>
+                                            <li><a href="fund.html">基金</a></li>
+                                            <li><a href="futures_options.html">期貨與選擇權</a></li>
+                                            <li><a href="forex.html">外匯</a></li>
+                                            <li><a href="precious_metal.html">貴金屬</a></li>
+                                            <li><a href="crypto.html">虛擬貨幣</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#">理財工具區</a>
+                        <ul class="submenu">
+                            <li><a href="tool_mortgage.html">房貸月還款試算</a></li>
+                            <li><a href="tool_stock_return.html">股票年化報酬率計算</a></li>
+                            <li><a href="tool_compare_interest.html">活儲/定存/股票/ETF 試算比較</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="forum.html">社群討論區</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
